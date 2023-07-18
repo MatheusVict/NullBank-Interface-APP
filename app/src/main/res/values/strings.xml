@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Nubank Interface</string>
+    <string name="app_name">Nubank</string>
     <string name="txt_user_name">Olá Matheus</string>
     <string name="txt_account_credit">Conta \n\n R$ 19.200,57</string>
     <string name="txt_cards">Meus cartões</string>
