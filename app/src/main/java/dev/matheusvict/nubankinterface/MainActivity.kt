@@ -4,21 +4,24 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import dev.matheusvict.nubankinterface.adapter.PaymentMethodsAdapter
+import dev.matheusvict.nubankinterface.adapter.ProductAdapter
 import dev.matheusvict.nubankinterface.databinding.ActivityMainBinding
 import dev.matheusvict.nubankinterface.model.Payment
+import dev.matheusvict.nubankinterface.model.Product
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var paymentMethodsAdapter: PaymentMethodsAdapter
+    private lateinit var productAdapter: ProductAdapter
     private val paymentMethodeList: MutableList<Payment> = mutableListOf()
+    private val productsList: MutableList<Product> = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
         initPaymentMethodsRecyclerView()
+        initProductsRecyclerView()
 
     }
 
@@ -52,5 +55,26 @@ class MainActivity : AppCompatActivity() {
         )
 
         paymentMethodeList.addAll(paymentMethods)
+    }
+
+    private fun initProductsRecyclerView() {
+        val productRecyclerView = binding.recyclerProducts
+
+        productRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        productRecyclerView.setHasFixedSize(true)
+        productAdapter = ProductAdapter(this, productsList)
+        productRecyclerView.adapter = productAdapter
+        setProductsList()
+    }
+
+    private fun setProductsList() {
+        val products: MutableList<Product> = mutableListOf(
+            Product("Participe da Promoção Tudo no Roxinho e concorra a..."),
+            Product("Chegou o débito automático da fatura do cartão"),
+            Product("Conheça a conta PJ: prática e livre de burocracia para se..."),
+            Product("Salve seus amigos da burocracia: Faça um convite..."),
+        )
+
+        productsList.addAll(products)
     }
 }
