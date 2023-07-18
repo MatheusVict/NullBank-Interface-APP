@@ -1,7 +1,10 @@
 package dev.matheusvict.nubankinterface
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import dev.matheusvict.nubankinterface.adapter.PaymentMethodsAdapter
 import dev.matheusvict.nubankinterface.adapter.ProductAdapter
@@ -19,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        window.statusBarColor = Color.parseColor("#6836BF")
 
         initPaymentMethodsRecyclerView()
         initProductsRecyclerView()

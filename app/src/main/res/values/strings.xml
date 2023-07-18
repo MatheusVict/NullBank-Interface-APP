@@ -3,4 +3,9 @@
     <string name="txt_user_name">Olá Matheus</string>
     <string name="txt_account_credit">Conta \n\n R$ 19.200,57</string>
     <string name="txt_cards">Meus cartões</string>
+    <string name="txt_card_title">Cartão de crédito</string>
+    <string name="txt_currency_invoice">Fatura atual</string>
+    <string name="txt_currency_invoice_money">R$ 959,69</string>
+    <string name="txt_limit">Limite disponível de R$ 50.953,54</string>
+    <string name="txt_invoice_parcelable">Parcelar compras</string>
 </resources>
