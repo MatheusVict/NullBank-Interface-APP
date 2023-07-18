@@ -1,9 +1,12 @@
 package dev.matheusvict.nubankinterface
 
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Process
+import android.os.UserManager
 import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import dev.matheusvict.nubankinterface.adapter.PaymentMethodsAdapter
@@ -27,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         initPaymentMethodsRecyclerView()
         initProductsRecyclerView()
-
+        setUserNameOnGreeting()
     }
 
     private fun initPaymentMethodsRecyclerView() {
@@ -81,5 +84,16 @@ class MainActivity : AppCompatActivity() {
         )
 
         productsList.addAll(products)
+    }
+
+    private fun setUserNameOnGreeting() {
+        val userName = getDeviceOwnerName(this)
+        val greetingMessage = getString(R.string.txt_user_name, userName)
+        binding.userName.text = String.format(greetingMessage, userName)
+    }
+
+    private fun getDeviceOwnerName(context: Context): String {
+        val userManager = context.getSystemService(Context.USER_SERVICE) as UserManager
+        return userManager.userName
     }
 }
